@@ -11,12 +11,10 @@ function createBoxes(amount) {
     elements.push('<div></div>')
   }
   boxEl.insertAdjacentHTML('afterbegin', elements.join(''))
-  console.log(boxEl.children)
   for (const el of boxEl.children) {
     el.style.width = widthEl + 'px'
     el.style.height = heightEl + 'px'
     el.style.backgroundColor = `#${Math.random().toString(13).substring(2, 8)}`
-    console.log(Math.random().toString(16) + '000000')
     widthEl += step
     heightEl += step
   }
