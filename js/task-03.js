@@ -19,22 +19,11 @@ const images = [
 const ListEl = document.querySelector('#gallery')
 
 const elemCreate = (elements) => {
-  return elements.map((el) => `<li><img src='${el.url}' alt='${el.alt}'> </li>`)
+  return elements.map(
+    (el) =>
+      `<li class="item"><img src='${el.url}' alt='${el.alt}' class="img"> </li>`,
+  )
 }
 
+ListEl.classList.add('list')
 ListEl.insertAdjacentHTML('afterbegin', elemCreate(images).join(''))
-ListEl.style.display = 'flex'
-ListEl.style.flexWrap = 'wrap'
-ListEl.style.listStyle = 'none'
-ListEl.style.marginBottom = '-30px'
-const items = [...ListEl.children]
-
-items.forEach((el, index) => {
-  el.style.width = 'calc((100% - 60px) / 3)'
-  el.firstChild.style.display = 'block'
-  el.firstChild.style.width = '100%'
-  el.firstChild.style.height = '100%'
-  el.style.marginBottom = '30px'
-  if ((index !== items.length - 1 && (index + 1) % 3 !== 0) || index === 0)
-    el.style.marginRight = '30px'
-})
