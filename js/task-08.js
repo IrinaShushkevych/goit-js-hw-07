@@ -8,21 +8,31 @@ function createBoxes(amount) {
   let heightEl = 30
   const step = 10
   for (let i = 0; i < amount; i++) {
-    elements.push('<div></div>')
-  }
-  boxEl.insertAdjacentHTML('afterbegin', elements.join(''))
-  for (const el of boxEl.children) {
-    el.style.width = widthEl + 'px'
-    el.style.height = heightEl + 'px'
-    el.style.backgroundColor = `#${Math.random().toString(13).substring(2, 8)}`
+    // elements.push('<div></div>')
+    elements.push(document.createElement('div'))
+    elements[i].style.width = widthEl + 'px'
+    elements[i].style.height = heightEl + 'px'
+    elements[i].style.backgroundColor = `#${Math.random()
+      .toString(13)
+      .substring(2, 8)}`
     widthEl += step
     heightEl += step
   }
+  // boxEl.insertAdjacentHTML('afterbegin', elements.join(''))
+  boxEl.append(...elements)
+  // for (const el of boxEl.children) {
+  //   el.style.width = widthEl + 'px'
+  //   el.style.height = heightEl + 'px'
+  //   el.style.backgroundColor = `#${Math.random().toString(13).substring(2, 8)}`
+  //   widthEl += step
+  //   heightEl += step
+  // }
 }
 
 function destroyBoxes() {
-  const elements = [...boxEl.children]
-  elements.forEach((el) => boxEl.removeChild(el))
+  // const elements = [...boxEl.children]
+  // elements.forEach((el) => boxEl.removeChild(el))
+  boxEl.innerHTML = ''
 }
 
 btnEl.forEach((element) => {

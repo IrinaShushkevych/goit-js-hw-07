@@ -1,7 +1,7 @@
 const inputEl = document.querySelector('input#name-input')
 const nameEl = document.querySelector('span#name-output')
 
-inputEl.addEventListener('keyup', () => {
+inputEl.addEventListener('input', () => {
   if (inputEl.value) {
     nameEl.textContent = inputEl.value
   } else {
